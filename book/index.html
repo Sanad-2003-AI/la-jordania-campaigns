@@ -117,7 +117,7 @@
             <textarea id="notes" name="notes" placeholder="Dietary needs, seating preference, backup time"></textarea>
           </div>
           <label class="consent">
-            <input id="marketingConsent" name="marketing_consent" type="checkbox" value="yes" checked>
+            <input id="marketingConsent" name="marketing_consent" type="checkbox" value="yes" autocomplete="off" checked>
             <span>I agree La Jordania may contact me about this booking and send future offers by SMS or email. I can opt out anytime.</span>
           </label>
           <button class="primary" type="submit">Book now</button>
@@ -156,6 +156,7 @@
     fields.utmCampaign.value=params.get("utm_campaign")||"la_jordania_group_table";
     fields.utmContent.value=params.get("utm_content")||initialOffer.toLowerCase();
     fields.clickedOfferCode.value=initialOffer;
+    document.getElementById("marketingConsent").checked=true;
     offer.value=initialOffer;
     function renderOffer(code){const data=offers[code]||offers.GT10;document.documentElement.style.setProperty("--hero-image",data.image);document.getElementById("headline").textContent=data.headline;document.getElementById("subhead").textContent=data.subhead;document.getElementById("codeBadge").textContent=code;document.getElementById("offerTitle").textContent=data.title;document.getElementById("offerCopy").textContent=data.copy)}
     offer.addEventListener("change",()=>renderOffer(offer.value));

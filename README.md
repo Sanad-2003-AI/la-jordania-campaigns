@@ -38,3 +38,6 @@ storage still requires a hosted form backend or database.
 Each offer link preserves the original clicked offer separately from the final
 selected offer in the booking request, so the 14-day test can compare which
 offer attracted the enquiry.
+
+Offer-specific links lock the form to that single offer. The generic `/book/`
+page can still show all offer options for internal testing.

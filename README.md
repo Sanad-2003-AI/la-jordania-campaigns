@@ -6,6 +6,9 @@ Current public entry:
 
 - Campaign draft notice: `/`
 - Booking form: `/book/`
+- GTDIP offer booking link: `/gtdip/`
+- GT10 offer booking link: `/gt10/`
+- GTCOMBO offer booking link: `/gtcombo/`
 
 Hidden draft campaign links:
 
@@ -31,3 +34,7 @@ exports, strategy docs, private notes, credentials, or customer lists.
 The temporary booking form uses approved public contact details and website
 photos. It prepares attributed email/SMS booking requests; automatic lead
 storage still requires a hosted form backend or database.
+
+Each offer link preserves the original clicked offer separately from the final
+selected offer in the booking request, so the 14-day test can compare which
+offer attracted the enquiry.

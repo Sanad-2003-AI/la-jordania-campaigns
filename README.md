@@ -31,9 +31,20 @@ Preferred production-domain paths once website/DNS access is available:
 This repo should contain only public campaign landing assets. Do not add POS
 exports, strategy docs, private notes, credentials, or customer lists.
 
-The temporary booking form uses approved public contact details and website
-photos. It prepares attributed email/SMS booking requests; automatic lead
-storage still requires a hosted form backend or database.
+The booking form uses approved public contact details and website photos. It
+posts attributed booking requests to a hosted form endpoint for server-side
+email delivery to the venue, while retaining SMS/email backup actions if the
+network request fails.
+
+Lead capture details:
+
+- Endpoint: `https://formsubmit.co/ajax/maikeld1908@yahoo.com`
+- Delivery: email to the venue with the offer code, staff instruction, customer
+  details, consent flag, source URL, and UTM fields.
+- Archive: FormSubmit retains submissions for 30 days and exposes a limited
+  archive/export API after the receiving email has confirmed the form.
+- First live submission may trigger a FormSubmit email-confirmation step for
+  `maikeld1908@yahoo.com`; confirm it before scaling paid traffic.
 
 Each offer link preserves the original clicked offer separately from the final
 selected offer in the booking request, so the 14-day test can compare which

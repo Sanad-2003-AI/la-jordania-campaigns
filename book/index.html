@@ -40,7 +40,7 @@
     .status h3{margin:0 0 8px;font-size:18px}
     .summary{white-space:pre-wrap;margin:10px 0 0;padding:12px;border-radius:6px;background:#fff;border:1px solid #d7e7dd;color:#31443b;font-size:14px;line-height:1.45}
     .fine{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.45}
-    @media (max-width:820px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.wrap{padding-top:58px}.hero{min-height:44vh}}
+    @media (max-width:820px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.wrap{padding-top:58px}.hero{min-height:44vh}h1{max-width:11ch;font-size:34px;line-height:1.05}.hero p:last-child{max-width:30ch;font-size:16px}}
   </style>
 </head>
 <body>
@@ -48,7 +48,7 @@
     <div class="wrap">
       <p class="eyebrow">La Jordania Surfers Paradise</p>
       <h1 id="headline">Book now</h1>
-      <p id="subhead">Send a group-table booking request with your offer code included.</p>
+      <p id="subhead">Request a group table. The offer is attached automatically for staff.</p>
     </div>
   </section>
   <main>
@@ -66,7 +66,7 @@
           <input type="hidden" name="clicked_offer_code" id="clickedOfferCode">
           <div class="grid">
             <div class="field">
-              <label for="offer">Offer code</label>
+              <label for="offer">Selected offer</label>
               <select id="offer" name="offer_code" required>
                 <option value="GT10">GT10 - 10% off for 4+ groups</option>
                 <option value="GTDIP">GTDIP - Dip of choice for 4+ groups</option>
@@ -120,12 +120,12 @@
             <input id="marketingConsent" name="marketing_consent" type="checkbox" value="yes" autocomplete="off" checked>
             <span>I agree La Jordania may contact me about this booking and send future offers by SMS or email. I can opt out anytime.</span>
           </label>
-          <button class="primary" type="submit">Book now</button>
-          <p class="fine">This sends a booking request to La Jordania. The venue will confirm availability by phone, SMS, or email.</p>
+          <button class="primary" type="submit">Request table</button>
+          <p class="fine">This prepares a booking request with the selected offer already attached for La Jordania staff.</p>
         </form>
         <div class="status" id="status">
-          <h3>Request ready</h3>
-          <p class="muted">Send it by email now, or use SMS/call if you want the fastest confirmation.</p>
+          <h3>Offer-tagged request ready</h3>
+          <p class="muted">Send it by email now, or use SMS/call if you want the fastest confirmation. The offer details are already included for staff.</p>
           <div class="actions">
             <a class="button primary" id="emailLink" href="#" aria-disabled="true">Email request</a>
             <a class="button secondary" id="smsLink" href="#" aria-disabled="true">SMS venue</a>
@@ -139,13 +139,13 @@
         <div class="offer-title" id="offerTitle">10% off for 4+ groups</div>
         <p class="offer-copy" id="offerCopy">Use this group-table offer for 10% off when dining with four or more guests.</p>
         <p class="muted"><strong>Booking contact</strong><br>Phone/SMS: 0451 604 646<br>Email: maikeld1908@yahoo.com</p>
-        <p class="fine">Daily redemption limits and service availability apply. Mention the offer code when you arrive so the venue can apply the correct Square campaign code at checkout.</p>
+        <p class="fine">Daily redemption limits and service availability apply. You do not need to remember a code; the booking request includes the offer for staff.</p>
       </aside>
     </div>
   </main>
   <script>
-    const offers={GT10:{headline:"10% off for 4+ groups",subhead:"Book a table for four or more and include code GT10.",title:"10% off for 4+ groups",copy:"Use this group-table offer for 10% off when dining with four or more guests.",image:'url("https://lajordania.com.au/images/P1013472-1.jpg")'},GTDIP:{headline:"Dip of choice for 4+ groups",subhead:"Book a table for four or more and include code GTDIP.",title:"Dip of choice for 4+ groups",copy:"Use this group-table offer for a dip of choice when dining with four or more guests.",image:'url("https://lajordania.com.au/images/P1013513.jpg")'},GTCOMBO:{headline:"10% off plus dip of choice",subhead:"Book ahead for a qualifying group table and include code GTCOMBO.",title:"10% off plus dip of choice",copy:"Booking-only group-table combo for four or more guests with a $200 minimum table spend.",image:'url("https://lajordania.com.au/images/P1013098.jpg")'}};
-    const offerLabels={GT10:"GT10 - 10% off for 4+ groups",GTDIP:"GTDIP - Dip of choice for 4+ groups",GTCOMBO:"GTCOMBO - 10% off plus dip, $200 minimum"};
+    const offers={GT10:{headline:"Book this group-table offer",subhead:"Request a table for four or more. The GT10 offer is attached automatically for staff.",title:"10% off for 4+ groups",copy:"Request a group table and the 10% offer will be included in the booking request for staff.",image:'url("https://lajordania.com.au/images/P1013472-1.jpg")'},GTDIP:{headline:"Book this group-table offer",subhead:"Request a table for four or more. The GTDIP offer is attached automatically for staff.",title:"Dip of choice for 4+ groups",copy:"Request a group table and the dip offer will be included in the booking request for staff.",image:'url("https://lajordania.com.au/images/P1013513.jpg")'},GTCOMBO:{headline:"Group dinner made easy",subhead:"Request an eligible group table. The GTCOMBO offer is attached automatically for staff.",title:"10% off plus dip of choice",copy:"Booking-only group-table offer for four or more guests with a $200 minimum table spend. The staff instruction is included automatically.",image:'url("https://lajordania.com.au/images/P1013098.jpg")'}};
+    const offerLabels={GT10:"GT10 group-table offer",GTDIP:"GTDIP group-table offer",GTCOMBO:"GTCOMBO group-table offer"};
     const staffChecks={GT10:"Staff: redeem GT10 in Square only for 4+ guests.",GTDIP:"Staff: redeem GTDIP in Square only for 4+ guests.",GTCOMBO:"Staff: this booking came through the GTCOMBO link. Confirm 4+ guests and $200+ table spend, then redeem GT10 plus GTDIP in Square."};
     const params=new URLSearchParams(window.location.search);
     const offerParam=(params.get("offer")||params.get("utm_content")||"GT10").toUpperCase();
